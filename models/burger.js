@@ -4,12 +4,19 @@ var orm = require('../config/orm.js')
 
 let burger = {
   selectAll: function(cb) {
-    orm.selectAll("burgers", function(err, results) {
-      if (err) {
-        console.log(err)
-      }
-      
-      console.log(results)
+    orm.selectAll("burgers", function(results) {
+
+      cb(results)
+    })
+  },
+  insert: function(cols, vals, cb) {
+    orm.insert("burgers", cols, vals, function(results) {
+
+      cb(results)
+    })
+  },
+  delete: function(id, cb) {
+    orm.delete("burgers", id, function(results) {
       cb(results)
     })
   }
