@@ -16,8 +16,9 @@ router.post("/", function(req, res) {
   });
 });
 
-router.delete("/:id", function(req, res) {
-  burger.delete([req.params.id], function() {
+router.put("/:id", function(req, res) {
+  burger.devour({ devoured: req.body.devoured}, req.params.id, function() {
+    
     res.redirect("/")
   });
 });

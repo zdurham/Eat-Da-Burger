@@ -15,8 +15,9 @@ let burger = {
       cb(results)
     })
   },
-  delete: function(id, cb) {
-    orm.delete("burgers", id, function(results) {
+  devour: function(objColVals, id, cb) {
+    orm.devour("burgers", objColVals, id, function(results) {
+
       cb(results)
     })
   }

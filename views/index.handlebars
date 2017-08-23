@@ -1,8 +1,25 @@
 <h1>Eat-Da-Burger</h1>
 <ul>
   {{#each burgers}}
-  <p>{{this.id}}</p>
-  <p>{{this.burger_name}}</p>
+    {{#unless this.devoured}}
+      <p>{{this.id}} | {{this.burger_name}}</p>
+
+      <form action="/{{this.id}}?_method=PUT" method="POST">
+        <button type="submit" name="devoured" value="true">Devour it!</button>
+      </form>
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<hr>
+
+<ul>
+  {{#each burgers}}
+    {{#if this.devoured}}
+    <p>{{this.id}}</p>
+    <p>{{this.burger_name}}</p>
+
+    {{/if}}
   {{/each}}
 </ul>
 

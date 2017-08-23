@@ -11,6 +11,19 @@ function printQuestionMarks(num) {
   return arr.toString();
 }
 
+function objToSql(ob) {
+  var arr = [];
+
+  for (var key in ob) {
+    if (Object.hasOwnProperty.call(ob, key)) {
+      arr.push(key + "=" + ob[key]);
+    }
+  }
+
+  return arr.toString();
+}
+
+
 // ORM
 var orm = {
   // Used to show each burger
@@ -33,14 +46,15 @@ var orm = {
       cb(result)
     })
   },
-  delete: function(table, id, cb) {
-    var queryString = "DELETE FROM " + table + "WHERE id =" + id;
-
-    connection.query(queryString, id, function(err, result) {
+  devour: function(table, objColVals, id, cb) {
+    var queryString = "UPDATE " + table + " SET " + objToSql(objColVals) + " WHERE id = " + id;
+    
+    console.log(queryString)
+    connection.query(queryString, function(err, result) {
       if (err) throw err;
 
       cb(result)
-    })
+    });
   }
-}
+};
 module.exports = orm;
