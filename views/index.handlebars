@@ -7,12 +7,12 @@
     <div class="col-sm-12">
       <div class="panel" id="submit-area">
         <div class="panel-header">
-          <h2 class="panel-title">Add a burger</h2>
+          <h2>Add a burger</h2>
         </div>
         <div class="panel-body">
           <form action="/" method="POST">
           <div class="form-group">
-            <textarea type="form-control" rows="1" name="burger_name"></textarea>
+            <textarea type="form-control" name="burger_name" rows="1"></textarea>
           </div>
           <div class="form-group">
             <button class="btn btn-default" type="submit">Submit!</button>
@@ -26,7 +26,7 @@
     <div class="col-md-6 col-lg-6 col-sm-12">
       <div class="panel">
         <div class="panel-header">
-          <h2 class="panel-title">Burgers to Eat!</h2>
+          <h2>Burgers to Eat!</h2>
         </div>
         <div class="panel-body" id="uneaten">
         {{#each burgers}}
@@ -46,7 +46,7 @@
     <div class="col-md-6 col-lg-6 col-sm-12">
       <div class="panel">
         <div class="panel-header">
-          <h3 class="panel-title">Devoured Burgers</h3>
+          <h2>Devoured Burgers</h2>
         </div>
         <div class="panel-body" id="eaten">
         {{#each burgers}}
